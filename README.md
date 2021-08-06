@@ -1,1 +1,1 @@
-h1 app Events
+app Events

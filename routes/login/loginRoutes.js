@@ -4,7 +4,7 @@ const { body } = require("express-validator");
 
 module.exports = function () {
   router.get("/", (req, res) => {
-    res.send("Hello Events");
+    res.send("route login");
   });
 
   return router;

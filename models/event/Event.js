@@ -1,6 +1,7 @@
 const { model, Schema } = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate-v2");
 
-const Event = new Schema(
+const EventSchema = new Schema(
   {
     title: {
       type: String,
@@ -17,17 +18,21 @@ const Event = new Schema(
     image: String,
     date: Date,
     url: String,
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
 );
-
-Event.set("toJSON", {
+EventSchema.plugin(mongoosePaginate);
+EventSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
     delete returnedObject.__v;
   },
 });
-const Car = model("Event", Event);
+const Event = model("Event", EventSchema);
 
 module.exports = Event;
