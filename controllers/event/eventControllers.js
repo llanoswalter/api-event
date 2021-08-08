@@ -111,11 +111,14 @@ exports.create_event = async (req, res, next) => {
 exports.share_an_event = async (req, res, next) => {
   const event = await Event.find({ url: req.params.id }).populate("User", { username: 1, name: 1 });
   if (!event && !event.name) return next({ error: "We have no event created" });
-  const share = `Iré al evento "${
-    event[0].title
-  }", que se llevara a cavo el "${event[0].date.toLocaleString()}" LINK "http://localhost:3001/api/event/${
-    event[0].url
-  }"`;
+  const share =
+    'Iré al evento "' +
+    event[0].title +
+    '", que se llevara a cavo el" ' +
+    event[0].date.toLocaleString() +
+    '" LINK " https://app-event-node.herokuapp.com/api/event/' +
+    event[0].url +
+    '"';
   res.json(share);
 };
 
