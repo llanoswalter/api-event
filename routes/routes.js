@@ -8,7 +8,9 @@ module.exports = function () {
   router.get("/", (req, res) => {
     res.send("Hello Work");
   });
-  router.use("/api/users/", userRoutes());
+  // router.use("/api/users/", userRoutes());
+  // router.use("/api/event/", eventRoutes());
+  router.use("/api/login/", loginRoutes());
 
   return router;
 };
