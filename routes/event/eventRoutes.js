@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { body } = require("express-validator");
 const eventControllers = require("../../controllers/event/eventControllers");
-// const userExtractor = require("../../middleware/userExtractor");
+const userExtractor = require("../../middleware/userExtractor");
 
 module.exports = function () {
   router.get("/", eventControllers.get_events);
