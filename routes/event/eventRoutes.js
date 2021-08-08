@@ -11,15 +11,15 @@ module.exports = function () {
   router.get("/paginate/:page?/:limit?", userExtractor, eventControllers.get_events_paginate);
   router.get("/share/:id", eventControllers.share_an_event);
   router.get("/:id", eventControllers.get_event_url);
-  // router.post(
-  //   "/",
-  //   userExtractor,
-  //   eventControllers.save_image,
-  //   body("title").not().isEmpty().trim().escape(),
-  //   body("description").not().isEmpty().trim().escape(),
-  //   body("location").not().isEmpty().trim().escape(),
-  //   body("date").not().isEmpty().isISO8601().toDate(),
-  //   eventControllers.create_event
-  // );
+  router.post(
+    "/",
+    userExtractor,
+    eventControllers.save_image,
+    body("title").not().isEmpty().trim().escape(),
+    body("description").not().isEmpty().trim().escape(),
+    body("location").not().isEmpty().trim().escape(),
+    body("date").not().isEmpty().isISO8601().toDate(),
+    eventControllers.create_event
+  );
   return router;
 };
