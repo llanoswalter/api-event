@@ -106,3 +106,12 @@ POST /api/share/:id
 ```
 
 **Params id =** "url page searched"
+
+- ## get image
+
+```HTTP
+POST /api/event/image/:id
+
+```
+
+**Params id =** "image searched"

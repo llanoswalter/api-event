@@ -6,6 +6,8 @@ const shortid = require("shortid");
 const slug = require("slug");
 const faker = require("faker");
 const jwt = require("jsonwebtoken");
+const fs = require("fs");
+const path = require("path");
 
 exports.save_image = (req, res, next) => {
   upload(req, res, function (error) {
@@ -116,4 +118,16 @@ exports.share_an_event = async (req, res, next) => {
     event[0].url
   }"`;
   res.json(share);
+};
+
+exports.image_event = async (req, res, next) => {
+  const fileName = req.params.fileName;
+  const pathFIle = path.join(__dirname, "../../public/images/") + fileName;
+  if (fs.existsSync(pathFIle)) {
+    console.log("si");
+    res.sendFile(path.resolve(pathFIle));
+  } else {
+    console.log("no");
+    res.status(401).json({ error: "image no exist" });
+  }
 };

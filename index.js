@@ -11,6 +11,7 @@ const handleErrors = require("./middleware/handleErrors");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use("/", router());
 app.use(notFound);
 app.use(handleErrors);
