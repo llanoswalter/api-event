@@ -15,7 +15,7 @@ app.use("/", router());
 app.use(notFound);
 app.use(handleErrors);
 const PORT = process.env.PORT || 55635;
-const server = app.listen(process.env.PORT || 55635, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
