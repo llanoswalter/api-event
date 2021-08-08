@@ -1,8 +1,5 @@
-const helper = require("./test_helper");
+const { usersInDb, api, server } = require("./test_helper");
 const mongoose = require("mongoose");
-const supertest = require("supertest");
-const { app, server } = require("../index");
-const api = supertest(app);
 const User = require("../models/user/User");
 const bcrypt = require("bcrypt");
 
@@ -17,7 +14,7 @@ describe("when there is initially one user in db", () => {
   });
 
   test("creation succeeds with a fresh username", async () => {
-    const usersAtStart = await helper.usersInDb();
+    const usersAtStart = await usersInDb();
 
     const newUser = {
       username: "mluukkai",
@@ -31,11 +28,36 @@ describe("when there is initially one user in db", () => {
       .expect(200)
       .expect("Content-Type", /application\/json/);
 
-    const usersAtEnd = await helper.usersInDb();
+    const usersAtEnd = await usersInDb();
     expect(usersAtEnd).toHaveLength(usersAtStart.length + 1);
 
     const usernames = usersAtEnd.map((u) => u.username);
     expect(usernames).toContain(newUser.username);
+  });
+
+  test("creation if no request", async () => {
+    await api
+      .post("/api/users")
+      .expect(400)
+      .expect("Content-Type", /application\/json/);
+  });
+
+  test("when requesting creation data is missing", async () => {
+    const usersAtStart = await usersInDb();
+
+    const newUser = {
+      username: "mluukkai",
+      name: "Matti Luukkainen",
+    };
+
+    await api
+      .post("/api/users")
+      .send(newUser)
+      .expect(400)
+      .expect("Content-Type", /application\/json/);
+
+    const usersAtEnd = await usersInDb();
+    expect(usersAtEnd).toHaveLength(usersAtStart.length);
   });
 });
 afterAll(() => {
