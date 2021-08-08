@@ -5,7 +5,7 @@
 - ## created User
 
 ```HTTP
-POST /api/users/
+POST https://app-event-node.herokuapp.com/api/users/
 
 requided bady{
   "username": String,
@@ -20,7 +20,7 @@ requided bady{
 - ## created Event
 
 ```HTTP
-POST /api/event/
+POST https://app-event-node.herokuapp.com/api/event/
 
 requided bady{
   title: String,
@@ -36,7 +36,7 @@ requided bady{
 - ## login
 
 ```HTTP
-POST /api/users/
+POST https://app-event-node.herokuapp.com/api/users/
 
 requided bady{
   "username": String,
@@ -50,7 +50,7 @@ requided bady{
 - ## get Events on the home page
 
 ```HTTP
-GET /api/event/
+GET https://app-event-node.herokuapp.com/api/event/
 ```
 
 ---
@@ -58,7 +58,7 @@ GET /api/event/
 - ## get ten featured events
 
 ```HTTP
-GET /api/event/featured
+GET https://app-event-node.herokuapp.com/api/event/featured
 ```
 
 ---
@@ -66,7 +66,7 @@ GET /api/event/featured
 - ## get Event by URl
 
 ```HTTP
-GET /api/event/:id
+GET https://app-event-node.herokuapp.com/api/event/:id
 
 ```
 
@@ -78,7 +78,7 @@ GET /api/event/:id
   get the first ten events
 
 ```HTTP
-GET /api/event/paginate
+GET https://app-event-node.herokuapp.com/api/event/paginate
 HEADER: authorization: "bearer (token)"
 
 
@@ -87,7 +87,7 @@ HEADER: authorization: "bearer (token)"
 **optional variables to handle paging**
 
 ```HTTP
-GET /api/event/paginate/:page?/:limit?
+GET https://app-event-node.herokuapp.com/api/event/paginate/:page?/:limit?
 HEADER: authorization: "bearer (token)"
 
 ```
@@ -101,7 +101,7 @@ HEADER: authorization: "bearer (token)"
 - ## get text to share an event
 
 ```HTTP
-POST /api/share/:id
+POST https://app-event-node.herokuapp.com/api/share/:id
 
 ```
 
@@ -110,7 +110,7 @@ POST /api/share/:id
 - ## get image
 
 ```HTTP
-POST /api/event/image/:id
+POST https://app-event-node.herokuapp.com/api/event/image/:id
 
 ```
 
