@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// const eventRoutes = require("./event/eventRoutes");
+const eventRoutes = require("./event/eventRoutes");
 const userRoutes = require("./user/userRoutes");
 const loginRoutes = require("./login/loginRoutes");
 
@@ -9,7 +9,7 @@ module.exports = function () {
     res.send("Hello Work");
   });
   router.use("/api/users/", userRoutes());
-  // router.use("/api/event/", eventRoutes());
+  router.use("/api/event/", eventRoutes());
   router.use("/api/login/", loginRoutes());
 
   return router;

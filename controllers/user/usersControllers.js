@@ -22,9 +22,3 @@ exports.create_user = async (req, res, next) => {
 
   res.json(savedUser);
 };
-
-exports.get_users = async (req, res, next) => {
-  const users = await User.find({}).populate("Event");
-  if (!users || !users.name) return next({ error: "We have no users created" });
-  res.json(users);
-};

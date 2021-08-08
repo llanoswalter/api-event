@@ -4,7 +4,6 @@ const { body } = require("express-validator");
 const userControllers = require("../../controllers/user/usersControllers");
 
 module.exports = function () {
-  router.get("/", userControllers.get_users);
   router.post(
     "/",
     body("username").not().isEmpty().trim().escape(),
