@@ -2,10 +2,9 @@ const express = require("express");
 const router = express.Router();
 const { body } = require("express-validator");
 const eventControllers = require("../../controllers/event/eventControllers");
-const userExtractor = require("../../middleware/userExtractor");
+// const userExtractor = require("../../middleware/userExtractor");
 
 module.exports = function () {
-  // router.get("/guardarRandon", eventControllers.generate_Event);
   router.get("/", eventControllers.get_events);
   // router.get("/featured", eventControllers.get_events_featured);
   // router.get("/image/:fileName", eventControllers.image_event);

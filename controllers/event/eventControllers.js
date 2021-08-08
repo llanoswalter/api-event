@@ -4,7 +4,6 @@ const User = require("../../models/user/User");
 const multer = require("multer");
 const shortid = require("shortid");
 const slug = require("slug");
-const faker = require("faker");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
 const path = require("path");
