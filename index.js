@@ -16,9 +16,9 @@ app.use("/", router());
 app.use(notFound);
 app.use(handleErrors);
 const host = process.env.HOST || "0.0.0.0";
-const port = process.env.PORT || 3000;
-const server = app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+const PORT = process.env.PORT || 3001;
+const server = app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = { app, server };
