@@ -6,11 +6,11 @@ const eventControllers = require("../../controllers/event/eventControllers");
 
 module.exports = function () {
   router.get("/", eventControllers.get_events);
-  // router.get("/featured", eventControllers.get_events_featured);
-  // router.get("/image/:fileName", eventControllers.image_event);
-  // router.get("/paginate/:page?/:limit?", userExtractor, eventControllers.get_events_paginate);
-  // router.get("/share/:id", eventControllers.share_an_event);
-  // router.get("/:id", eventControllers.get_event_url);
+  router.get("/featured", eventControllers.get_events_featured);
+  router.get("/image/:fileName", eventControllers.image_event);
+  router.get("/paginate/:page?/:limit?", userExtractor, eventControllers.get_events_paginate);
+  router.get("/share/:id", eventControllers.share_an_event);
+  router.get("/:id", eventControllers.get_event_url);
   // router.post(
   //   "/",
   //   userExtractor,
